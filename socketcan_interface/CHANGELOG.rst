@@ -2,32 +2,6 @@
 Changelog for package socketcan_interface
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.8.5 (2020-09-22)
-------------------
-* check settings pointer and print error if null
-* initalize settings properly in deprecated SocketCANInterface::init
-* Contributors: Mathias Lüdtke
-
-0.8.4 (2020-08-22)
-------------------
-* make parse_error_mask a static member function
-* pass settings from ROS node to SocketCANInterface
-* add support for recursive XmlRpcSettings lookups
-* implemented report-only and fatal errors for SocketCANInterface
-* added settings parameter to DriverInterface::init
-* moved XmlRpcSettings to socketcan_interface
-* moved canopen::Settings into can namespace
-* Contributors: Mathias Lüdtke
-
-0.8.3 (2020-05-07)
-------------------
-* Fixed Boost link in test-dispacher
-  Signed-off-by: ahcorde <ahcorde@gmail.com>
-* Bump CMake version to avoid CMP0048 warning
-  Signed-off-by: ahcorde <ahcorde@gmail.com>
-* do not print ERROR in candump
-* Contributors: Mathias Lüdtke, ahcorde
-
 0.8.2 (2019-11-04)
 ------------------
 * enable rosconsole_bridge bindings

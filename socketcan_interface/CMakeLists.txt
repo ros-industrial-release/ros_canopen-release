@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.2)
+cmake_minimum_required(VERSION 2.8.3)
 project(socketcan_interface)
 
 if(NOT CMAKE_CXX_STANDARD)
@@ -104,7 +104,6 @@ install(
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 if(CATKIN_ENABLE_TESTING)
-  find_package(xmlrpcpp REQUIRED)
 
   catkin_add_gtest(${PROJECT_NAME}-test_dummy_interface
     test/test_dummy_interface.cpp
@@ -121,18 +120,6 @@ if(CATKIN_ENABLE_TESTING)
   target_link_libraries(${PROJECT_NAME}-test_delegates
     ${PROJECT_NAME}_string
     ${catkin_LIBRARIES}
-  )
-
-  catkin_add_gtest(${PROJECT_NAME}-test_settings
-    test/test_settings.cpp
-  )
-  target_include_directories(${PROJECT_NAME}-test_settings PRIVATE
-    ${xmlrpcpp_INCLUDE_DIRS}
-  )
-  target_link_libraries(${PROJECT_NAME}-test_settings
-    ${PROJECT_NAME}_string
-    ${catkin_LIBRARIES}
-    ${xmlrpcpp_LIBRARIES}
   )
 
   catkin_add_gtest(${PROJECT_NAME}-test_string
@@ -159,7 +146,6 @@ if(CATKIN_ENABLE_TESTING)
   target_link_libraries(${PROJECT_NAME}-test_dispatcher
     ${PROJECT_NAME}_string
     ${catkin_LIBRARIES}
-    ${Boost_LIBRARIES}
   )
   target_compile_options(${PROJECT_NAME}-test_dispatcher PRIVATE -Wno-deprecated-declarations)
 endif()

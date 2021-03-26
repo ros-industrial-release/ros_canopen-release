@@ -10,6 +10,8 @@ using namespace can;
 
 #include <iostream>
 
+void print_error(const State & s);
+
 void print_frame(const Frame &f){
 
     if(f.is_error){
@@ -39,10 +41,10 @@ void print_frame(const Frame &f){
 std::shared_ptr<class_loader::ClassLoader> g_loader;
 DriverInterfaceSharedPtr g_driver;
 
-void print_state(const State & s){
+void print_error(const State & s){
     std::string err;
     g_driver->translateError(s.internal_error,err);
-    std::cout << "STATE: driver_state=" << s.driver_state << " internal_error=" << s.internal_error << "('" << err << "') asio: " << s.error_code << std::endl;
+    std::cout << "ERROR: state=" << s.driver_state << " internal_error=" << s.internal_error << "('" << err << "') asio: " << s.error_code << std::endl;
 }
 
 
@@ -72,10 +74,10 @@ int main(int argc, char *argv[]){
 
 
     FrameListenerConstSharedPtr frame_printer = g_driver->createMsgListener(print_frame);
-    StateListenerConstSharedPtr error_printer = g_driver->createStateListener(print_state);
+    StateListenerConstSharedPtr error_printer = g_driver->createStateListener(print_error);
 
-    if(!g_driver->init(argv[1], false, can::NoSettings::create())){
-        print_state(g_driver->getState());
+    if(!g_driver->init(argv[1], false)){
+        print_error(g_driver->getState());
         return 1;
     }
 

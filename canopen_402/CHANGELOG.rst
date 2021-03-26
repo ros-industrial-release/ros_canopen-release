@@ -2,21 +2,6 @@
 Changelog for package canopen_402
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.8.5 (2020-09-22)
-------------------
-
-0.8.4 (2020-08-22)
-------------------
-* handle illegal states in nextStateForEnabling
-* tranistion -> transition
-* Contributors: Mathias Lüdtke, Mikael Arguedas
-
-0.8.3 (2020-05-07)
-------------------
-* Bump CMake version to avoid CMP0048 warning
-  Signed-off-by: ahcorde <ahcorde@gmail.com>
-* Contributors: ahcorde
-
 0.8.2 (2019-11-04)
 ------------------
 * enable rosconsole_bridge bindings

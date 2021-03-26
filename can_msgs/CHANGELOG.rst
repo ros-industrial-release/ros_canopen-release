@@ -2,17 +2,10 @@
 Changelog for package can_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.8.5 (2020-09-22)
+2.0.0 (2019-11-05)
 ------------------
-
-0.8.4 (2020-08-22)
-------------------
-
-0.8.3 (2020-05-07)
-------------------
-* Bump CMake version to avoid CMP0048 warning
-  Signed-off-by: ahcorde <ahcorde@gmail.com>
-* Contributors: ahcorde
+* port can_msgs to ROS2
+* Contributors: Joshua Whitley, Mathias Lüdtke
 
 0.8.2 (2019-11-04)
 ------------------

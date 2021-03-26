@@ -29,8 +29,6 @@
 #include <socketcan_bridge/socketcan_to_topic.h>
 #include <socketcan_interface/threading.h>
 #include <socketcan_interface/string.h>
-#include <socketcan_interface/xmlrpc_settings.h>
-#include <memory>
 #include <string>
 
 
@@ -46,8 +44,7 @@ int main(int argc, char *argv[])
 
   can::ThreadedSocketCANInterfaceSharedPtr driver = std::make_shared<can::ThreadedSocketCANInterface> ();
 
-  // initialize device at can_device, 0 for no loopback.
-  if (!driver->init(can_device, 0, XmlRpcSettings::create(nh_param)))
+  if (!driver->init(can_device, 0))  // initialize device at can_device, 0 for no loopback.
   {
     ROS_FATAL("Failed to initialize can_device at %s", can_device.c_str());
     return 1;
